@@ -35,4 +35,6 @@ router.get("/api/transaction", (req, res) => {
 });
 // mongodb+srv://admin:dEOIhYKoRXWf1hoC@cluster0.qlmzq.mongodb.net/budget_tracker?retryWrites=true&w=majority
 // heroku config:set MONGODB_URI="
+// RqoWtF35qtBQox2p
+// mongodb+srv://admin:RqoWtF35qtBQox2p@cluster0.yctnd.mongodb.net/budgetßß?retryWrites=true&w=majority
 module.exports = router;
