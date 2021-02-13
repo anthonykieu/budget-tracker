@@ -31,7 +31,7 @@ self.addEventListener('activate', function (e) {
     e.waitUntil(
         caches.keys().then(function (keyList) {
             let cacheKeeplist = keyList.filter(function (key) {
-                return key.indexOf(APP_PREFIX);
+                return key.startsWith(APP_PREFIX);
             });
             cacheKeeplist.push(CACHE_NAME);
             return Promise.all(
@@ -72,5 +72,17 @@ self.addEventListener('fetch', function (e) {
 
         return;
     }
-
-})
+    e.respondWith(
+        fetch(e.request).catch(function () {
+            console.log("failed to get response" + e.request.url)
+            return caches.match(e.request).then(function (response) {
+                if (response) {
+                    return response;
+                } else if (e.request.headers.get('accept').includes('text/html')) {
+                    // return the cached home page for all requests for html pages
+                    return caches.match('/');
+                }
+            });
+        })
+    );
+});
