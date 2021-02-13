@@ -33,5 +33,6 @@ router.get("/api/transaction", (req, res) => {
       res.status(404).json(err);
     });
 });
-
+// mongodb+srv://admin:dEOIhYKoRXWf1hoC@cluster0.qlmzq.mongodb.net/budget_tracker?retryWrites=true&w=majority
+// heroku config:set MONGODB_URI="
 module.exports = router;
