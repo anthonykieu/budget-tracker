@@ -2,6 +2,7 @@ const APP_PREFIX = 'Budget-';
 const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION;
 const DATA_CACHE_NAME = APP_PREFIX + "data"+ VERSION;
+
 const FILES_TO_CACHE = [
     "/",
     "/js/idb.js",
